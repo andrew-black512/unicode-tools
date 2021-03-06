@@ -15,7 +15,7 @@ def print_unicode ( unicode_int ) :
     print  ( unicodedata.name(char) )
 #-----------------------------
 def print_column( text ) :
-    print (text, end='\t')
+    print (text, end=' ')
 #-----------------------------
 def print_table (char_int, num, repeat_ct) :
     char_int = char_int - (char_int % repeat_ct)
@@ -23,7 +23,7 @@ def print_table (char_int, num, repeat_ct) :
     # column headings if 2 or more
     print_column ('         ') # "%6X
     for i in range(0, 0 + repeat_ct  ):
-        print_column ( '  %x' %  i)
+        print_column ( '%x' %  i)
     print ('')
     #TODO print 8.9....F
 
