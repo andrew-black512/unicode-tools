@@ -19,6 +19,38 @@ def print_unicode ( unicode_int ) :
 def print_column( text ) :
     print (text, end='\t')
 #-----------------------------
+def print_table (char_int, num, repeat_ct) :
+    char_int = char_int - (char_int % repeat_ct)
+
+    # column headings if 2 or more
+    print_column ('           ') # "%6X
+    for i in range(0, 0 + repeat_ct  ):
+        print_column ( '  %x' %  i)
+    #TODO print 8.9....F
+
+    for i in range(char_int, char_int + num ) :
+        if i % repeat_ct_down == 0:
+            print ('')
+        if i % repeat_ct == 0:
+            print_column ( "%6X : " % i)
+        #print_column ( "%4x" % i ) ##if i % 4==0
+        print_column(chr(i))
+        print ('  ',end='')
+    print ('')
+#-----------------------------
+def print_list ( from_int, num, repeat_ct_down=4 ) :
+
+    for i in range(char_int, char_int + num ) :
+        if i % repeat_ct_down == 0:
+            print ('')
+        if i % repeat_ct == 0:
+            print_column ( "%6X : " % i)
+        print_column(chr(i))
+        print ('  ',end='')
+        print_unicode( i )
+    print ('')
+
+#-----------------------------
 # process args and set up "semi config variables"
 try:
   assert len(sys.argv) - 1 == 3
@@ -35,27 +67,7 @@ except:
   print ("Usage: unicode_print.py U1 [num] [cols]")
   sys.exit()
 
-#
-# Vote on which is clearer.
-#char_int = int(char_int/repeat_ct) * repeat_ct
-char_int = char_int - (char_int % repeat_ct)
-
-# "unwrap" this into do_linear and do_column
-if repeat_ct > 1 :
-    # column headings if 2 or more
-    print_column ('           ') # "%6X
-    for i in range(0, 0 + repeat_ct  ):
-        print_column ( '  %x' %  i)
-    #TODO print 8.9....F
-
-for i in range(char_int, char_int + num ) :
-    if i % repeat_ct_down == 0:
-        print ('')
-    if i % repeat_ct == 0:
-        print_column ( "%6X : " % i)
-    #print_column ( "%4x" % i ) ##if i % 4==0
-    print_column(chr(i))
-    print ('  ',end='')
-    if repeat_ct == 1 :
-        print_unicode( i )
-print ('')
+if repeat_ct == 1 :
+    print_list (char_int, num )
+else :
+    print_table (char_int, num, repeat_ct )
