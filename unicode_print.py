@@ -14,8 +14,6 @@ def print_unicode ( unicode_int ) :
     print  ( unicodedata.category(char), end="    ")
     print  ( unicodedata.name(char) )
 #-----------------------------
-# Dont combine with normal prints - buffering buggers
-## TODO: add a newline (default to  none   )
 def print_column( text ) :
     print (text, end='\t')
 #-----------------------------
