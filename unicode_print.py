@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+import re
 import sys
 import unicodedata
 
@@ -13,6 +13,13 @@ def print_unicode ( unicode_int ) :
     # print ( "%x %s" % (unicode_int,chr(unicode_int) ) , end=" ")
     print  ( unicodedata.category(char), end="    ")
     if 1 :     #FEATURE munge SMALL / CAPITAL
+      name = unicodedata.name(char)
+      if re.search("CAPITAL", name ) :
+        name = name
+      else :
+        name = name.lower()
+      print ( name )
+    else:
       print  ( unicodedata.name(char) )
 #-----------------------------
 def print_column( text ) :
