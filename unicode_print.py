@@ -12,7 +12,8 @@ def print_unicode ( unicode_int ) :
     char = chr(unicode_int)
     # print ( "%x %s" % (unicode_int,chr(unicode_int) ) , end=" ")
     print  ( unicodedata.category(char), end="    ")
-    print  ( unicodedata.name(char) )
+    if 1 :     #FEATURE munge SMALL / CAPITAL
+      print  ( unicodedata.name(char) )
 #-----------------------------
 def print_column( text ) :
     print (text, end=' ')
