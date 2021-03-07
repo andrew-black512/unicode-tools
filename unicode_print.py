@@ -15,7 +15,13 @@ def print_unicode ( unicode_int ) :
     if 1 :     #FEATURE munge SMALL / CAPITAL
       name = unicodedata.name(char)
       if re.search("CAPITAL", name ) :
-        name = name
+        name_lower = name.lower()
+        if name_lower == name :
+            print(name, "same")
+        else :
+            print( ' recurse?')
+
+
       else :
         name = name.lower()
       print ( name )
