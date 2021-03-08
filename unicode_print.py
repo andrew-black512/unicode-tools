@@ -13,20 +13,12 @@ def print_unicode ( unicode_int ) :
     # print ( "%x %s" % (unicode_int,chr(unicode_int) ) , end=" ")
     print  ( unicodedata.category(char), end="    ")
     if 1 :     #FEATURE munge SMALL / CAPITAL
-      name = unicodedata.name(char)
-      if re.search("CAPITAL", name ) :
-        char_lower = char.lower()
-        if char_lower == char :
-            print(name, "same")
-        else :
-            print( ' see', char_lower, end='  ' )
-
-
+      char_lower = char.lower()
+      if char_lower == char :
+          lower = '        '
       else :
-        name = name.lower()
-      print ( name )
-    else:
-      print  ( unicodedata.name(char) )
+          lower = "(%4X %s)" %( ord(char_lower) , char_lower )
+    print  ( lower, unicodedata.name(char).lower() )
 #-----------------------------
 def print_column( text ) :
     print (text, end=' ')
