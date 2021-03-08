@@ -77,7 +77,14 @@ try:
 # Catch exceptions for bad arguments
 except:
     # TODO: send to stderr
-  print ("Usage: unicode_print.py U1 [num] [cols]")
+  print ("""
+  Usage: unicode_print.py U1 [num] [cols]
+
+   U1 - start character (hex)
+   num - number of characters
+   col - columns
+
+  """)
   sys.exit()
 
 if repeat_ct == 1 :
