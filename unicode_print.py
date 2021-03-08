@@ -31,8 +31,9 @@ def print_unicode ( unicode_int ) :
 def print_column( text ) :
     print (text, end=' ')
 #-----------------------------
-# Prints out range of characters one per line
+# Prints out range of characters in table
 def print_table (char_int, num, repeat_ct) :
+    #
     char_int = char_int - (char_int % repeat_ct)
 
     # column headings if 2 or more
