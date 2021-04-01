@@ -8,6 +8,7 @@ def print_unicode ( unicode_char ) :
 
     # print ( "%x %s" % (unicode_int,chr(unicode_int) ) , end=" ")
     print  (
+       "%4X" % ord(unicode_char),
        unicode_char,
        unicodedata.name(unicode_char)
     )
