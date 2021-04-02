@@ -5,13 +5,14 @@ import unicodedata
 
 #----------------------------------------------------------
 def print_unicode ( unicode_char ) :
-
-    # print ( "%x %s" % (unicode_int,chr(unicode_int) ) , end=" ")
-    print  (
-       "%4X" % ord(unicode_char),
-       unicode_char,
-       unicodedata.name(unicode_char)
-    )
+     min_char = 0x80   # poss config
+     n = ord(unicode_char )
+     if n >= min_char :
+         print  (
+           "%4X" % n ,
+           unicode_char,
+           unicodedata.name(unicode_char)
+         )
 
 #----------------------------------------------------------
 # arguments
