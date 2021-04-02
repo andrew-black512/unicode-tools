@@ -20,5 +20,6 @@ filename = sys.argv[1]
 
 with open(filename) as fh :
   for line in fh:
+    print ()
     for (i,c) in enumerate(line.rstrip() ) :
         print_unicode (c)
