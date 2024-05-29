@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import sys
+import PyPDF2
 
 def  extract_first_n_pages(input_pdf,  num_pages):
       """
@@ -9,8 +11,15 @@ def  extract_first_n_pages(input_pdf,  num_pages):
           num_pages (int): Number of pages to extract.
       """
       with open(input_pdf, 'rb') as input_file:
-        reader = PdfReader(input_file)
+        reader = PyPDF2.PdfReader(input_file)
+        writer = PyPDF2.PdfWriter()
         page = reader.pages[0]
         print(page.extract_text())
+        writer.add_page(page)
+        writer.write("output.pdf")
+
 
 filenames = sys.argv[1:]
+for f in filenames :
+    print (f)
+    extract_first_n_pages( f, 1 )
