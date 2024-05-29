@@ -1,25 +1,16 @@
 #!/usr/bin/python3
-import clipboard
-import re
 
-# Regular expression to match any vowel (case-insensitive)
-vowel_pattern = r"[aeiouAEIOU]"
-pattern = r"[a-z]"
+def  extract_first_n_pages(input_pdf,  num_pages):
+      """
+      Extracts the first N pages from a PDF and saves them to a new PDF.
 
-def substitute_vowels_regex(text, p_pattern):
-  """Substitutes vowels in a string with "*" using regular expression.
+      Args:
+          input_pdf (str): Path to the input PDF file.
+          num_pages (int): Number of pages to extract.
+      """
+      with open(input_pdf, 'rb') as input_file:
+        reader = PdfReader(input_file)
+        page = reader.pages[0]
+        print(page.extract_text())
 
-  Args:
-    text: The string to be processed.
-
-  Returns:
-    The string with vowels replaced by "*".
-  """
-  return re.sub(p_pattern, "_", text)
-
-# Get the clipboard contents
-text = clipboard.paste()
-new_text = substitute_vowels_regex(text,pattern)
-clipboard.copy( new_text) 
-print( new_text )
-
+filenames = sys.argv[1:]
