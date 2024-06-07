@@ -14,7 +14,8 @@ def  extract_first_n_pages(input_pdf ):
         reader = PyPDF2.PdfReader(input_file)
         #TODO iterate on num_pages
         pagect = len(reader.pages)
-        print(f"{input_pdf:<20}{pagect:4d}")
+        #date=.strftime('%d-%b-%Y')
+        print(f"{input_pdf[:40]:<40}{pagect:4d}")
 
 
 filenames = sys.argv[1:]
