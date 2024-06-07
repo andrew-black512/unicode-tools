@@ -2,7 +2,7 @@
 import sys
 import PyPDF2
 
-def  extract_first_n_pages(input_pdf, w, num_pages, num_copies ):
+def  extract_first_n_pages(input_pdf ):
       """
       Extracts the first N pages from a PDF and saves them to a new PDF.
 
@@ -13,17 +13,13 @@ def  extract_first_n_pages(input_pdf, w, num_pages, num_copies ):
       with open(input_pdf, 'rb') as input_file:
         reader = PyPDF2.PdfReader(input_file)
         #TODO iterate on num_pages
-        page = reader.pages[0]
-        print(page.extract_text()) #TODO a diff program
-        for n in range(num_copies) :
-           w.add_page(page)
+        pagect = reader.pages.length
+        print(pagect)
 
 
 filenames = sys.argv[1:]
-writer = PyPDF2.PdfWriter()
 
 for f in filenames :
     print (f)
-    extract_first_n_pages( f, writer, 1, num_copies=2  )
+    extract_first_n_pages( f  )
             
-writer.write("output.pdf")
