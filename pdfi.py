@@ -13,13 +13,12 @@ def  extract_first_n_pages(input_pdf ):
       with open(input_pdf, 'rb') as input_file:
         reader = PyPDF2.PdfReader(input_file)
         #TODO iterate on num_pages
-        pagect = reader.pages.length
-        print(pagect)
+        pagect = len(reader.pages)
+        print(f"{input_pdf:<20}{pagect:4d}")
 
 
 filenames = sys.argv[1:]
 
 for f in filenames :
-    print (f)
     extract_first_n_pages( f  )
             
