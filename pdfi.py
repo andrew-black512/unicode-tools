@@ -1,25 +1,35 @@
 #!/usr/bin/python3
 import sys
 import PyPDF2
+import os
+from datetime import datetime
 
-def  extract_first_n_pages(input_pdf ):
+#TODO poss library
+def modtime ( p_filename ) :
+    mtime = os.path.getmtime( p_filename )
+    mtime_dt = datetime.fromtimestamp(mtime) 
+    return mtime_dt
+def format_time ( p_dt) :
+    return p_dt.strftime('%d-%b-%Y %H:%M')
+def modtime_str ( p_filename) :
+    return format_time( modtime(p_filename))
+
+def  print_info(input_pdf ):
       """
-      Extracts the first N pages from a PDF and saves them to a new PDF.
-
+      prints info on pdf
       Args:
           input_pdf (str): Path to the input PDF file.
-          num_pages (int): Number of pages to extract.
       """
       with open(input_pdf, 'rb') as input_file:
         reader = PyPDF2.PdfReader(input_file)
-        #TODO iterate on num_pages
         pagect = len(reader.pages)
-        #date=.strftime('%d-%b-%Y')
-        print(f"{input_pdf[:40]:<40}{pagect:4d}")
+        time_str = modtime_str( input_pdf)
+        print(f"{input_pdf[:40]:<40} {pagect:4d}  {time_str}")
 
 
 filenames = sys.argv[1:]
 
+print()
 for f in filenames :
-    extract_first_n_pages( f  )
-            
+    print_info( f  )
+print()            
