@@ -24,7 +24,7 @@ def  print_info(input_pdf ):
         reader = PyPDF2.PdfReader(input_file)
         pagect = len(reader.pages)
         time_str = modtime_str( input_pdf)
-        print(f"{input_pdf[:40]:<40} {pagect:4d}  {time_str}")
+        print(f"{input_pdf[:40]:<40} {pagect:4d}    {time_str}")
 
 
 filenames = sys.argv[1:]
