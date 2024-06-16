@@ -21,9 +21,10 @@ def  extract_first_n_pages(input_pdf, w, num_pages, num_copies ):
 
 filenames = sys.argv[1:]
 writer = PyPDF2.PdfWriter()
+num = 1   #TODO param
 
 for f in filenames :
     print (f)
-    extract_first_n_pages( f, writer, 1, num_copies=2  )
+    extract_first_n_pages( f, writer, 1, num_copies=num  )
             
 writer.write("output.pdf")
