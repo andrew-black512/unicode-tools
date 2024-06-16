@@ -14,7 +14,7 @@ def  extract_first_n_pages(input_pdf, w, num_pages, num_copies ):
         reader = PyPDF2.PdfReader(input_file)
         #TODO iterate on num_pages
         page = reader.pages[0]
-        print(page.extract_text()) #TODO a diff program
+        #print(page.extract_text()) #TODO a diff program
         for n in range(num_copies) :
            w.add_page(page)
 
