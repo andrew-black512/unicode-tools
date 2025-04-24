@@ -25,7 +25,14 @@ def print_unicode ( unicode_int ) :
           lower = '        '
       else :
           lower = "(%4X %s)" %( ord(char_lower) , char_lower )
-    print  ( lower, unicodedata.name(char).lower() )
+    
+    try :
+        uniName = unicodedata.name(char)
+    except Exception as e:
+        #print (e)
+        # forgiveness.....
+        uniName = f'unknown - {e}'
+    print  ( lower, uniName.lower() )
 #-----------------------------
 def print_column( text ) :
     print (text, end=' ')
